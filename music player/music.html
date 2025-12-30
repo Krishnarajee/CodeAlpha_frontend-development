@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Music Player interface</title>
+  <style>
+    :root {
+      --bg-color: #f4f4f9;
+      --card-bg: #ffffff;
+      --primary: #2196f3;
+      --primary-dark: #1769aa;
+      --text-primary: #333;
+      --text-secondary: #555;
+      --shadow: rgba(0, 0, 0, 0.1);
+      --transition-speed: 0.3s;
+    }
+    body {
+      background: var(--bg-color);
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .player {
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px var(--shadow);
+      width: 340px;
+      padding: 22px;
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    }
+    .player:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px var(--shadow);
+    }
+    .track-info {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .track-info .title {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: var(--text-primary);
+    }
+    .track-info .artist {
+      font-size: 0.95em;
+      color: var(--text-secondary);
+    }
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+    .controls button {
+      background: none;
+      border: none;
+      font-size: 1.6em;
+      color: var(--primary);
+      cursor: pointer;
+      transition: transform var(--transition-speed), color var(--transition-speed);
+    }
+    .controls button:hover {
+      transform: scale(1.2);
+      color: var(--primary-dark);
+    }
+    .progress-container {
+      width: 100%;
+      height: 6px;
+      background: #ddd;
+      border-radius: 3px;
+      cursor: pointer;
+      position: relative;
+      margin-bottom: 6px;
+      transition: background var(--transition-speed);
+    }
+    .progress-container:hover {
+      background: #ccc;
+    }
+    .progress {
+      height: 100%;
+      background: var(--primary);
+      width: 0%;
+      border-radius: 3px;
+      transition: width 0.1s linear;
+    }
+    .time {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85em;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+    .volume-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .volume-container input[type="range"] {
+      width: 100%;
+      cursor: pointer;
+    }
+    .playlist {
+      max-height: 140px;
+      overflow-y: auto;
+      border-top: 1px solid #eee;
+      padding-top: 12px;
+    }
+    .playlist .song {
+      padding: 8px 10px;
+      border-radius: 6px;
+      transition: background-color var(--transition-speed), transform var(--transition-speed);
+      cursor: pointer;
+    }
+    .playlist .song:hover {
+      background-color: #f0f8ff;
+      transform: translateX(4px);
+    }
+    .playlist .song.active {
+      background-color: #e8f4ff;
+      font-weight: bold;
+    }
+    /* optional: smooth fade-in on load */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .player {
+      animation: fadeIn 0.5s ease-out;
+    }
+  </style>
+</head>
+<body>
+
+<div class="player">
+  <div class="track-info">
+    <div class="title" id="title">No song</div>
+    <div class="artist" id="artist">-</div>
+  </div>
+
+  <div class="controls">
+    <button id="prev">⏮️</button>
+    <button id="play">▶️</button>
+    <button id="next">⏭️</button>
+  </div>
+
+  <div class="progress-container" id="progress-container">
+    <div class="progress" id="progress"></div>
+  </div>
+  <div class="time">
+    <span id="current-time">00:00</span>
+    <span id="total-duration">00:00</span>
+  </div>
+
+  <div class="volume-container">
+    <label for="volume">🔊</label>
+    <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+  </div>
+
+  <div class="playlist" id="playlist">
+    <!-- playlist items will be injected here -->
+  </div>
+
+  <audio id="audio"></audio>
+</div>
+
+<script>
+  const tracks = [
+    { title: "Arasan theme", artist: "Artist Anirudh", src: "music/song1.mp3" },
+    { title: "Ooorum blood", artist: "Artist Abyaankar", src: "music/song2.mp3" },
+    { title: "Singari", artist: "Artist Abyaankar", src: "music/song3.mp3" }
+    // Add more tracks as needed
+  ];
+
+  let currentIndex = 0;
+  const audio = document.getElementById('audio');
+  const playBtn = document.getElementById('play');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  const titleEl = document.getElementById('title');
+  const artistEl = document.getElementById('artist');
+  const currentTimeEl = document.getElementById('current-time');
+  const totalDurationEl = document.getElementById('total-duration');
+  const progressContainer = document.getElementById('progress-container');
+  const progressBar = document.getElementById('progress');
+  const volumeSlider = document.getElementById('volume');
+  const playlistEl = document.getElementById('playlist');
+
+  function loadTrack(index) {
+    const track = tracks[index];
+    audio.src = track.src;
+    titleEl.textContent = track.title;
+    artistEl.textContent = track.artist;
+    document.querySelectorAll('.playlist .song').forEach((el, idx) => {
+      el.classList.toggle('active', idx === index);
+    });
+  }
+
+  function playTrack() {
+    audio.play();
+    playBtn.textContent = '⏸️';
+  }
+  function pauseTrack() {
+    audio.pause();
+    playBtn.textContent = '▶️';
+  }
+
+  playBtn.onclick = () => {
+    if (audio.paused) playTrack();
+    else pauseTrack();
+  };
+
+  prevBtn.onclick = () => {
+    currentIndex = (currentIndex - 1 + tracks.length) % tracks.length;
+    loadTrack(currentIndex);
+    playTrack();
+  };
+
+  nextBtn.onclick = () => {
+    currentIndex = (currentIndex + 1) % tracks.length;
+    loadTrack(currentIndex);
+    playTrack();
+  };
+
+  audio.addEventListener('loadedmetadata', () => {
+    totalDurationEl.textContent = formatTime(audio.duration);
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+    const percent = (audio.currentTime / audio.duration) * 100;
+    progressBar.style.width = percent + '%';
+  });
+
+  progressContainer.onclick = (e) => {
+    const clickX = e.offsetX;
+    const width = progressContainer.clientWidth;
+    audio.currentTime = (clickX / width) * audio.duration;
+  };
+
+  volumeSlider.oninput = (e) => {
+    audio.volume = e.target.value;
+  };
+
+  audio.addEventListener('ended', () => {
+    // autoplay next
+    currentIndex = (currentIndex + 1) % tracks.length;
+    loadTrack(currentIndex);
+    playTrack();
+  });
+
+  tracks.forEach((track, idx) => {
+    const div = document.createElement('div');
+    div.classList.add('song');
+    div.textContent = track.title + " — " + track.artist;
+    div.onclick = () => {
+      currentIndex = idx;
+      loadTrack(currentIndex);
+      playTrack();
+    };
+    playlistEl.append(div);
+  });
+
+  loadTrack(currentIndex);
+
+  function formatTime(sec) {
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return String(m).padStart(2, '0') + ":" + String(s).padStart(2, '0');
+  }
+</script>
+
+</body>
+</html>

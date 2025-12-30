@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title> Krisharajee Portfolio Website</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        h1{
+            color:aqua ;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        p{
+            font-size: small;
+            font-weight: 200;
+            margin-bottom: 15px;
+        }
+        .degree{
+            border: 2px solid gray;
+            border-radius: 9px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }.degree:hover{
+             border-color: aqua;
+           box-shadow: inset 0px 0px 10px aqua;
+        }
+        .icon{
+              margin-top: 15px;
+            color: rgb(28, 204, 189);
+            font-size: medium;
+          
+           
+           
+            margin-bottom: 15px;
+        }
+        h2{
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        h2 span{
+            font-size: medium;
+            font-weight: 400;
+             margin-bottom: 5px;
+        }
+        h4{
+            font-size: small;
+            font-weight: 300;
+            margin-bottom: 10px;
+
+        }
+        h3{
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+.button{
+    display: inline-block;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: linear-gradient(to right,#2ff5ff,#09e158);
+    font-size: small;
+    font-weight: 400;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+    </style>
+</head>
+<body>
+    <header>
+      
+
+        <nav>
+            <a href="index.html" > Home</a>
+            <a href="about.html" >About</a>
+            <a href="skills.html" >Skills</a>
+            <a href="education.html" class="active">Education</a>
+            <a href="experience.html" >Experience</a>
+            <a href="contact.html" >Contact</a>
+        </nav>
+        <div class="bar">
+        <a href=""><i class="fa-solid fa-bars"></i></a>
+        </div>
+    </header>
+   <section class="Education">
+    <h1>Educational Background</h1>
+    <p>Acadamic foundation in technology and continuous learning journey </p>
+
+    <div class="degree">
+    <a href="#" class="icon"><i class="fa-solid fa-graduation-cap"></i></a>
+    <h2>Bachelor of Engineering</h2>
+    <h2><span>Computer Science and Engineering</span></h2>
+<h4>Sri Ramakrishna College of Engineering</h4>
+<h3>2023 - 2027 Currently Pursuing CGPA : 8.20/10</h3>
+  <div class="button">IN PROGRESS</div>
+   <p class="para"> Comprehensive program focusing on computer science ,computer networks, and emerging hands on projects. </p>
+    </div>
+ <div class="degree">
+    <a href="#" class="icon"><i class="fa-solid fa-school"></i></a>
+    <h2> Higher secondary (Xll)</h2>
+    <h2><span>Science Stream(Physics,Chemistry,Mathemetics)</span></h2>
+<h4>Govt.Hr. Sec .School, Devanur</h4>
+<h3>2022 - 2023 Completed 75%</h3>
+  <div class="button">COMPLETED</div>
+   <p class="para"> Strong foundation in science and mathemetics,preparing for engineering astrances examinations. </p>
+
+</div>
+
+<div class="degree">
+    <a href="#" class="icon"><i class="fa-solid fa-school"></i></a>
+    <h2> Secondary school (X)</h2>
+    <h2><span>General Education with maths focus </span></h2>
+<h4>Govt.Hr. Sec .School, Devanur</h4>
+<h3>2019 - 2020 Completed 90%</h3>
+  <div class="button">COMPLETED</div>
+   <p class="para"> Excellent acadamic performance with strong foundation in core subjects,demonstrating early aptitude for science and technology. </p>
+
+</div>
+   </section>
+   <script>
+  const bar = document.querySelector(".bar a");
+  const nav = document.querySelector("header nav");
+
+  bar.addEventListener("click", function (e) {
+    e.preventDefault();        
+    nav.classList.toggle("active");
+  });
+</script>
+</body>
+</html>

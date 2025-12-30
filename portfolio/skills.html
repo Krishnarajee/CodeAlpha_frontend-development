@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title> Krisharajee Portfolio Website</title>
+    <style>
+        body{
+            text-align: center;
+             font-family: 'Poppins', sans-serif;
+        }
+     .title{
+          padding: 2% 2% 2%;
+            color: aqua;
+            font-weight: 700;
+        }
+        .titlep{
+            font-size: small;
+            font-weight: 200;
+            margin-bottom: 15px;
+        }
+        .dev{
+              margin: 0%;
+            padding: 3% 2% 1%;
+            border:2px solid rgb(105, 109, 109);
+            border-radius: 8px;
+            transition: all 0.3 ease;
+            gap: 20px;
+             margin-bottom: 20px;
+        }
+        .dev:hover{
+           border-color: aqua;
+           box-shadow: inset 0px 0px 10px aqua;
+        }
+        .icon{
+           
+            
+            font-size: medium;
+            color: aqua;
+        }
+        p{
+            font-size: small;
+            font-weight: 200;
+        }
+        .lang1,.lang2,.lang3{
+            padding: 10px 10px;
+            border: 2px solid grey;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 6cap groove rgb(11, 233, 85);
+          
+        }
+       /* .lang1,.lang2,.lang3:hover{
+             border-color: rgb(0, 255, 55);
+           box-shadow:  1px 1px 5px aqua;
+
+        }*/
+    </style>
+</head>
+<body>
+    <header>
+      
+
+        <nav>
+            <a href="index.html" > Home</a>
+            <a href="about.html" >About</a>
+            <a href="skills.html" class="active">Skills</a>
+            <a href="education.html" >Education</a>
+            <a href="experience.html" >Experience</a>
+            <a href="contact.html" >Contact</a>
+        </nav>
+        <div class="bar">
+        <a href=""><i class="fa-solid fa-bars"></i></a>
+        </div>
+    </header>
+   <section class="skills">
+ <h1 class="title">Technical Skills & Expertise</h1>
+ <p class="titlep">Comprehensive skill set across front-end development and designing</p>
+
+ <div class="dev">
+    <a href="#" class="icon"><i class="fa-solid fa-laptop-code"></i></a>
+    <h2>Front-end development</h2>
+    <p>I focus on creating responsive, user-friendly, and visually appealing web interfaces</p>
+
+   <div class="lang1">HTML</div> 
+   
+   <div class="lang2">CSS</div> 
+   
+   <div class="lang3">JavaScript</div> 
+ </div>
+ <div class="dev">
+    <a href="#" class="icon"><i class="fa-solid fa-compass-drafting"></i></a>
+    <h2>UI/UX Designing</h2>
+    <p>Creating responsive and visually appealing  interfaces</p>
+
+   <div class="lang1">Figma</div> 
+   
+   <div class="lang2">Canva</div> 
+   
+   <div class="lang3">Photoshop</div> 
+ </div>
+   </section>
+            
+        <script>
+  const bar = document.querySelector(".bar a");
+  const nav = document.querySelector("header nav");
+
+  bar.addEventListener("click", function (e) {
+    e.preventDefault();        
+    nav.classList.toggle("active");
+  });
+</script>
+    
+</body>
+</html>

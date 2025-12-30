@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title> Krisharajee Portfolio Website</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">KRISHNARAJEE</a>
+
+        <nav>
+            <a href="index.html" class="active"> Home</a>
+            <a href="about.html" >About</a>
+            <a href="skills.html" >Skills</a>
+            <a href="education.html" >Education</a>
+            <a href="experience.html" >Experience</a>
+            <a href="contact.html" >Contact</a>
+        </nav>
+        <div class="bar">
+        <a href=""><i class="fa-solid fa-bars"></i></a>
+        </div>
+    </header>
+    <section class="home">
+        <div class="home-img">
+            <img src="image/2raj.png" alt="krishnarajee image">
+        </div>
+        <div class="home-content">
+            <h1>Hi, It's <span>Krishnarajee</span></h1>
+            <h3 class="typing-text">I'm a <span></span></h3>
+            <p>I am a passionate Web Developer skilled in HTML, CSS, and JavaScript, with a keen interest in designing visually appealing and user-friendly websites. I love experimenting with animations, layouts, and interactive features to create engaging web experiences while continuously improving my technical skills.</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/krishnarajee-r-56731928b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/Krishnarajee"><i class="fa-brands fa-github"></i></a>
+                <a href="https://x.com/KrishnarajeeR"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/_krishnx_8?igsh=eDU4eWZiZzJrbnhx"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+
+            <a href="contact.html" class="btn">Hire me</a>
+            <a href="image/CV.jpg" class="btn1">View My CV</a>
+        </div>
+     
+            
+        
+    </section>
+   <script>
+  const bar = document.querySelector(".bar a");
+  const nav = document.querySelector("header nav");
+
+  bar.addEventListener("click", function (e) {
+    e.preventDefault();        
+    nav.classList.toggle("active");
+  });
+</script>
+</body>
+</html>

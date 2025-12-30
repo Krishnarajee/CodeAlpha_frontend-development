@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Image Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Image Gallery</h2>
+
+<!-- Filter Buttons -->
+<div class="filters">
+  <button onclick="filterImages('all')">All</button>
+  <button onclick="filterImages('nature')">Nature</button>
+  <button onclick="filterImages('tech')">Tech</button>
+</div>
+
+<!-- Gallery -->
+<div class="gallery">
+  <img src="images/img1.jpg" class="nature" onclick="openLightbox(0)">
+  <img src="images/img3.jpg" class="tech" onclick="openLightbox(1)">
+  <img src="images/img2.jpg" class="nature" onclick="openLightbox(2)">
+  <img src="images/img4.jpg" class="tech" onclick="openLightbox(3)">
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <span onclick="closeLightbox()">×</span>
+  <button onclick="prev()">❮</button>
+  <img id="lightboxImg">
+  <button onclick="next()">❯</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

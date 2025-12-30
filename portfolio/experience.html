@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title> Krisharajee Portfolio Website</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .expr h1{
+color: aqua;
+margin-top: 10px;
+margin-bottom: 10px;
+
+}
+.expr p{
+    font-size: small;
+    font-weight: 200;
+    margin-bottom: 10px;
+}
+.web{
+    border: 2px solid gray;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}.web:hover{
+      border-color: aqua;
+           box-shadow: inset 0px 0px 10px aqua;
+}
+.icon{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(29, 188, 161);
+    font-size: medium;
+}
+.course{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+h3{
+    font-size: small;
+    font-weight: 300;
+    color: aqua;
+    margin-bottom: 5px;
+}
+.button{
+     display: inline-block;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: linear-gradient(to right,#2ff5ff,#09e158);
+    font-size: small;
+    font-weight: 400;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+.p1{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.ul1{
+    
+    font-size: small;
+    margin: 10px;
+    margin-bottom: 10px;
+}
+.button1{
+     display: inline-block;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: linear-gradient(to right,#2ff5ff,#c02e36);
+    font-size: small;
+    font-weight: 400;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+    </style> 
+</head>
+<body>
+    <header>
+     
+
+        <nav>
+            <a href="index.html" > Home</a>
+            <a href="about.html" >About</a>
+            <a href="skills.html" >Skills</a>
+            <a href="education.html" >Education</a>
+            <a href="experience.html" class="active" >Experience</a>
+            <a href="contact.html" >Contact</a>
+        </nav>
+        <div class="bar">
+        <a href=""><i class="fa-solid fa-bars"></i></a>
+        </div>
+    </header>
+   <section class="expr">
+
+    <h1>Experience & Services</h1>
+    <p>Building expertise through hands-on internship and real world projects</p>
+
+    <div class="web">
+      <a href="#" class="icon"><i class="fa-solid fa-code"></i></a>
+      <h2 class="course">Front-end Development</h2>
+<h3>Code Alpha</h3>
+ <div class="button">IN PROGRESS</div>
+ <p class="p1">Working with the official code alphaa fo front-end development internship.</p>
+ <h2 class="course">Key Achievents & Responsibilities:</h2>
+ <div class="button1">HTML</div>
+ <div class="button1">CSS</div>
+ <div class="button1">JavaScript</div>
+    </div>
+
+      <div class="web">
+      <a href="#" class="icon"><i class="fa-solid fa-file-code"></i></a>
+      <h2 class="course">Web Development</h2>
+<h3>ZANE pvt ltd</h3>
+ <div class="button">PAST</div>
+ <p class="p1">Working with the official ZANE pvt ltd for the web Development internship.</p>
+ <h2 class="course">Key Achievents & Responsibilities:</h2>
+ <div class="button1">Python basics</div>
+ <div class="button1">HTML</div>
+ <div class="button1">CSS</div>
+ <div class="button1">JavaScript</div>
+    </div>
+   </section>
+   <script>
+  const bar = document.querySelector(".bar a");
+  const nav = document.querySelector("header nav");
+
+  bar.addEventListener("click", function (e) {
+    e.preventDefault();        
+    nav.classList.toggle("active");
+  });
+</script>
+</body>
+</html>

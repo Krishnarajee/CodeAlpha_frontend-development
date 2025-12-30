@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title> Krisharajee Portfolio Website</title>
+    <style>
+        body{
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        h1{
+            color: aqua;
+             margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .mail{
+        
+            
+            border: 2px solid gray;
+            border-radius: 10px;
+           
+            margin-left: 5px;
+             margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .mail:hover{
+           border-color: aqua;
+           box-shadow: inset 0px 0px 10px aqua;
+        }
+  h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  h4{
+    font-size: small;
+    font-weight: 200;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  .icon{
+   font-size: medium;
+    color: rgb(29, 188, 161);;
+    
+   
+  }
+       
+      .contact-section {
+  background: #000000;
+  padding: 30px;
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.contact-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0ed3e9;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background: #000000;
+  color: #fff;
+  outline: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #6f6f6f;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #14eeee;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 10px;
+  background: #1dc2d4;
+  border: none;
+  border-radius: 6px;
+  color: #000000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background:  #0bd8d8;
+}  
+.get{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.touch{
+    border: 2px solid grey;
+    border-radius: 10px;
+    padding: 15px 15px;
+}
+.touch:hover{
+    border-color: aqua;
+           box-shadow: inset 0px 0px 10px aqua;
+        }
+   
+    </style>
+</head>
+<body>
+    <header>
+      
+
+        <nav>
+            <a href="index.html"> Home</a>
+            <a href="about.html" >About</a>
+            <a href="skills.html" >Skills</a>
+            <a href="education.html" >Education</a>
+            <a href="experience.html" >Experience</a>
+            <a href="contact.html"  class="active">Contact</a>
+        </nav>
+        <div class="bar">
+        <a href=""><i class="fa-solid fa-bars"></i></a>
+        </div>
+    </header>
+   <section class="contact">
+<h1>Contact Me</h1>
+<div class="mail">
+    <h3 class="icon"><i class="fa-solid fa-envelope"></i> </h3>
+    <h2>EMAIL</h2>
+    <h4>krishnarajravi07@gmail.com</h4>
+</div>
+   
+<div class="touch">
+  
+    <h2 class="get">Get in Touch</h2>
+
+    <form class="contact-form" action="mailto:krishnarajravi07@gmail.com" method="post" enctype="text/plain">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="text" placeholder="Subject" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    </div>
+    <div class="social-icons">
+                <a href="https://www.linkedin.com/in/krishnarajee-r-56731928b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/Krishnarajee"><i class="fa-brands fa-github"></i></a>
+                <a href="https://x.com/KrishnarajeeR"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/_krishnx_8?igsh=eDU4eWZiZzJrbnhx"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+  </section>
+  <script>
+  const bar = document.querySelector(".bar a");
+  const nav = document.querySelector("header nav");
+
+  bar.addEventListener("click", function (e) {
+    e.preventDefault();        
+    nav.classList.toggle("active");
+  });
+</script>
+</body>
+</html>
